@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assesment 1</title>
+</head>
+<body>
+    <p> NAMA  : ROFII SULTAN</p>
+    <P> NIM   : 6701223039</P>
+    <P> KELAS : 46-02</P>
+
+ <form id="profil">
+    <label for="jumlah"> pilihan buku</label>
+    <input type="number"  name="jumlah" id="jumlah" ></input>
+    <br>
+    <label for="buku">pilih buku</label>
+    <select name="buku" id="buku">
+        <option value="sherlock">sherlock</option>
+        <option value="lupin">lupin</option>
+        <option value="aladin">Aladin</option>
+    </select>
+    <br><br>
+    <button type="button" onclick="periksaBuku()">Periksa buku yang tersedia</button>
+ </form>
+ <p id="hasil"></p>
+ <script>
+    let buku = [
+        {"nama": "sherlock", "jumlah":2},
+        {"nama": "lupin", "jumlah":2},
+        {"nama": "aladin", "jumlah":2},
+    ];
+    function periksaBuku(){
+        let jumlah = document.getElementById('jumlah').value;
+        let  bukuDipilih = document.getElementById('buku').value;
+
+        if (jumlah ===""){
+            alert("Masukkan jumlah buku yang diingin kan");
+            return;
+        }
+        let bukuDitemukan = false;
+        let bukuada = false;
+
+        for (let i = 0;i < buku.lenght;i++){
+            if(buku[i].nama === bukuDipilih){
+                bukuDitemukan = true;
+                if (buku[i].jumlah >= jumlah){
+                    stokcukup = true;
+                }
+                break;
+            }
+        }
+        if (!bukuDitemukan){
+            alert("buku tidak ditemukan");
+        } else if (!stokcukup){
+            alert("stok buku tidak mencukupi");
+        } else {
+            alert("silahkan ambil buku anda");
+        }
+    }
+ </script>
+</body>
+</html>
